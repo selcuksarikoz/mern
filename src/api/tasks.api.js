@@ -9,7 +9,7 @@ router.get('/', async (req, res, next) => {
 
 	const result = await TasksModel.find()
 		.skip(skip)
-		.limit(limit)
+		.limit(limit);
 
 	return res.send(result);
 });

@@ -22,20 +22,20 @@ class App extends Component {
 
 	getDone = () => {
 		return this.props.Tasks.filter(todo => todo.done).map((todo, index) => (
-			<Item key={index} {...todo} toggle={this.toggle} />
+			<Item key={todo._id} {...todo} toggle={this.toggle} />
 		))
 	}
 
 	getUnDone = () => {
 		return this.props.Tasks.filter(todo => !todo.done).map((todo, index) => (
-			<Item key={index} {...todo} toggle={this.toggle} />
+			<Item key={todo._id} {...todo} toggle={this.toggle} />
 		))
 	}
 
 
 	// services
 	save = async () => {
-		const timestamp = new Date().getTime(this.state.deadLine);
+		const timestamp = new Date(this.state.deadLine).getTime();
 		const result = await saveTodo({
 			title: this.state.text,
 			deadLine: timestamp
@@ -78,7 +78,6 @@ class App extends Component {
 				<Column title={"Todo"}>
 					{this.props.Tasks && this.getUnDone()}
 				</Column>
-
 
 				<Column title={"Done"}>
 					{this.props.Tasks && this.getDone()}

@@ -6,6 +6,12 @@
 	width:100%;
 	padding:10px;
 	margin-bottom:10px;
+	border-radius:5px;
+
+	&.done {
+		text-decoration-line: line-through;
+		opacity: 0.5;
+	}
 
 	label {
 		display: block;
@@ -48,5 +54,15 @@
 				will-change: transition;
 			}
 		}
+	}
+
+	.item__deadline {
+		text-align: right;
+		font-size:11px;
+		margin-top:10px;
+	}
+
+	.item__title {
+
 	}
 }

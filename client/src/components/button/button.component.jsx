@@ -1,11 +1,12 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 
 import './button.style.scss'
 
-export default class Button extends PureComponent {
-	render() {
-		return (
-			<button className="btn-save" type="submit" onClick={this.props.onClick}>{this.props.value}</button>
-		)
-	}
+const Button = (props) => {
+	const { value, onClick } = props;
+	return (
+		<button className="btn-save" type="submit" onClick={onClick}>{value}</button>
+	)
 }
+
+export default Button;

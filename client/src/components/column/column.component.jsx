@@ -1,18 +1,18 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 
 import './column.style.scss';
 
-export default class Column extends PureComponent {
-	render() {
-		const {title} = this.props;
-		return (
-			<div className="column">
-				{
-					title && (<div className="column__title">{title}</div>)
-				}
+const Column = (props) => {
+	const { title, children } = props;
+	return (
+		<div className="column">
+			{
+				title && (<div className="column__title">{title}</div>)
+			}
 
-				{this.props.children}
-			</div>
-		)
-	}
+			{children}
+		</div>
+	)
 }
+
+export default Column;
